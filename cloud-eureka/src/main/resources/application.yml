@@ -13,7 +13,9 @@ eureka:
     hostname: localhost
     prefer-ip-address: true
   client:
+#  表示应用是否是想注册中心注册自己(配置高可用的时候需要设置为true.)
     registerWithEureka: false
+#    是否去检索服务
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://192.168.0.176:${server.port}/eureka/
