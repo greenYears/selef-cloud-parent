@@ -1,0 +1,19 @@
+server:
+  port: 9000
+
+spring:
+  profiles:
+    active: zmq
+#    active: @spring.cloud.env@
+
+eureka:
+#  datacenter: cloud
+  environment: ${spring.profiles.active}
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
