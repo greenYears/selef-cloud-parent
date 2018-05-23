@@ -25,7 +25,8 @@ public class IndexController {
 
   @RequestMapping(value = "/home", method = RequestMethod.GET)
   public String index() {
-    String body = restTemplate.getForEntity("http://cloud-commons/common/hostname", String.class).getBody();
+    String body = restTemplate.getForEntity("http://cloud-commons/common/hostname",
+        String.class).getBody();
     return "欢迎访问,您的访问结果是：" + body;
   }
 }
